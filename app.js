@@ -1,1 +1,1 @@
-
+console.log('My script');
