@@ -1,9 +1,9 @@
 const shipParts = document.querySelectorAll('ship');
 const wordGuessed = document.getElementById('word');
-const plaAgainButton = document.getElementById('play-again');
+const playAgain = document.getElementById('play-again');
 const letterUsed = document.getElementById('letter-container');
 const message = document.getElementById('result-message');
-const alert = document.getElementById('alert')
+const alertC = document.getElementById('alert')
 const footerContainer = document.getElementById('footer-container');
 
 
@@ -56,4 +56,34 @@ const wrongLetter = () => {
     }
 }
 
+//letter already pressed
+const alreadyPressed = () => {
+    alertC.classList.add('popup');
+    setTimeout(() => {
+        alertC.classList.remove('popup');
+    }, 1500)
+}
+
+//letter pressed
+window.addEventListener('keydown', event => {
+    //https://keycode.info/
+    if (event.keyCode > 64 && event.keyCode < 91) {
+        const l = event.key;
+        if (wordSelection.includes(l)) {
+            if (!correctL.includes(l)) {
+                correctL.push(l);
+                setWord();
+            } else {
+                alreadyPressed();
+            }
+        } else {
+            if (!wrongL.includes(l)) {
+                wrongL.push(l);
+                wrongLetter();
+            } else {
+                alreadyPressed();
+            }
+        }
+    }
+})
 setWord();

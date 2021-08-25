@@ -65,6 +65,13 @@ p {
     border-bottom: 2px solid rgb(197, 196, 253);
 }
 
+.alert-container p {
+    margin: 0;;
+}
+.alert-container .popup {
+    transform: translateY(-50px);
+}
+
 
 #ship-container {
     margin-top: 100px;
