@@ -14,31 +14,33 @@ let correctL = [];
 let wrongL = [];
 
 //set the word
-console.log(wordSelection)
 const setWord = () => {
-    wordGuessed.innerHTML = `
-     ${wordSelection.split(' ').map(l => `<span class ="letter">
-            ${correctL.includes(l) ? l : ''}
-            </span>`
-            ).join('')}`;
+    console.log(wordSelection)
+    // wordGuessed.innerHTML = `
+    //  ${wordSelection.split(' ').map(l => `<span class ="letter">
+    //         ${correctL.includes(l) ? l : ''}
+    //         </span>`
+    //         ).join('')}`;
     // const setWord = () => {
     // console.log(wordSelection);
-    // let letters = wordSelection.split('');
-    // console.log(letters);
-    // for (let i = 0; i < letters.length; i++) {
-    //     if (correctL.includes(letters[i])) {
-    //         let span = document.createElement('span');
-    //         span.innerText = correctL[i];
-    //         console.log(span);
-    //         wordGuessed.appendChild(span);
-    //         // wordGuessed.innerHTML = `<span class = "letter">${correctL[i]}</span>`;
-    //     } else {
-    //         // wordGuessed.innerHTML = `<span class = "letter">${''}</span>`;
-    //         console.log('wrong letter');
-    //     }
+    let letters = wordSelection.split('');
+    console.log(letters);
+    for (let i = 0; i < letters.length; i++) {
+        if (correctL.includes(letters[i])) {
+            let span = document.createElement('p');
+            span.setAttribute('class', 'letter');
+            console.log(letters[i]);
+            span.innerText = letters[i];
+            console.log(span);
+            wordGuessed.appendChild(span);
+            // wordGuessed.innerHTML = `<span class = "letter">${correctL[i]}</span>`;
+        } else {
+            // wordGuessed.innerHTML = `<span class = "letter">${''}</span>`;
+            console.log('wrong letter');
+        }
 
-    // }
-    // console.log(correctL);
+    }
+    console.log(correctL);
     // correctL.join('');
 
     console.log(correctL);
@@ -98,6 +100,7 @@ window.addEventListener('keydown', event => {
     //https://keycode.info/
     if (event.keyCode > 64 && event.keyCode < 91) {
         const l = event.key;
+        console.log(wordSelection.includes(l))
         if (wordSelection.includes(l)) {
             if (!correctL.includes(l)) {
                 correctL.push(l);
@@ -118,7 +121,8 @@ window.addEventListener('keydown', event => {
 
 
 playAgain.addEventListener('click', () => {
-    wordSelection = words[Math.floor(Math.random() * wordSelection.length)]
+    wordSelection = words[Math.floor(Math.random() * words.length)]
+    console.log(wordSelection);
     correctL = [];
     wrongL = [];
     setWord();

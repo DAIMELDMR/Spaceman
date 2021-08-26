@@ -5,6 +5,7 @@
 #spaceman-container {
     width: 95%;
     height: 85%;
+
 }
 
 
@@ -22,7 +23,7 @@ body {
 
 
 .ship{
-
+    fill: none;
     display: none;
 }
 
@@ -70,10 +71,9 @@ p {
 
 .word-container{
     display: flex;
-    float: bottom;
-    position: relative;
-    bottom: 10px;
-    transform: translateX(-50%);
+    flex-direction:row;
+    justify-content: center;
+
 }
 
 .letter {
@@ -87,14 +87,24 @@ p {
     border-bottom: 2px solid rgb(197, 196, 253);
 }
 
+.alert-container {
+    border-radius: 10px 10px 0 0;
+    padding: 15px 20px;
+    position: absolute;
+    bottom:-500px;
+    left: 200px;
+    transition: transform 0.3s ease-in-out;
+    justify-content:center;
+}
+
+
 .alert-container p {
-    bottom: -50px;
     margin: 0;
 
 }
 .alert-container .popup{
 
-    transform: translateY(-50px);
+    transform: translateY(-250px);
 }
 
 
@@ -106,7 +116,7 @@ p {
 
 svg {
     height: 750px;
-    width: 750px;
+    width: 725px;
     margin-right: 150px;
     margin-top: -100px;
 }
