@@ -70,6 +70,7 @@ p {
 }
 
 .word-container{
+    margin-bottom: 50px;
     display: flex;
     flex-direction:row;
     justify-content: center;
@@ -88,24 +89,29 @@ p {
 }
 
 .alert-container {
-    border-radius: 10px 10px 0 0;
+    display: none;
+    box-shadow:  0 15px 10px 3px rgba(0, 0, 0, 0.1);
+    /* border-radius: 10px 10px 0 0;
     padding: 15px 20px;
     position: absolute;
     bottom:-500px;
     left: 200px;
-    transition: transform 0.3s ease-in-out;
+    transition: transform 0.3s ease-in-out;*/
     justify-content:center;
 }
 
 
 .alert-container p {
+
     margin: 0;
 
 }
-.alert-container .popup{
 
-    transform: translateY(-250px);
+.alert-container .popup {
+    display: flex;
+    box-shadow:  0 15px 10px 3px rgba(0, 0, 0, 0.1);
 }
+
 
 
 
@@ -115,8 +121,8 @@ p {
 }
 
 svg {
-    height: 750px;
-    width: 725px;
+    height: 500px;
+    width: 500px;
     margin-right: 150px;
     margin-top: -100px;
 }

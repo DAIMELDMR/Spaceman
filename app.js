@@ -7,7 +7,7 @@ const alertC = document.getElementById('alert')
 const footerContainer = document.getElementById('footer-container');
 
 
-const words = ['progressive', 'smart', 'breathe', 'explosion', 'propulsion'];
+const words = ['progressive', 'smart', 'breathe', 'explosion', 'propulsion','verging', 'encourage', 'immanence', 'nonvitiation', 'eradication', 'vertebration', 'tunnage', 'untranscendental', 'blastoderm', 'sunshiny', 'clownishly', 'ureteric', 'multilaminate',  'imploded', 'absorber', 'semiemotional', 'housewrecker', 'tribade', 'nonvolubleness','desterilize', 'colorfastness', 'crusoe', 'dyscrasia', 'atreus', 'pewage', 'featherstitch', 'nephrogenic', 'plenteously', 'courteney', 'uncastigated', 'reshew', 'kali', 'unarrestable', 'underlip', 'conrad', 'rajas', 'blazer', 'minhagic', 'shiksa', 'stoppability', 'employer', 'brest', 'beniamino', 'orotundity', 'dekko', 'homosexual', 'caudated', 'fulgent', 'unapostrophized'];
 
 let wordSelection = words[Math.floor(Math.random() * words.length)];
 let correctL = [];
@@ -16,31 +16,31 @@ let wrongL = [];
 //set the word
 const setWord = () => {
     console.log(wordSelection)
-    // wordGuessed.innerHTML = `
-    //  ${wordSelection.split(' ').map(l => `<span class ="letter">
-    //         ${correctL.includes(l) ? l : ''}
-    //         </span>`
-    //         ).join('')}`;
-    // const setWord = () => {
-    // console.log(wordSelection);
-    let letters = wordSelection.split('');
-    console.log(letters);
-    for (let i = 0; i < letters.length; i++) {
-        if (correctL.includes(letters[i])) {
-            let span = document.createElement('p');
-            span.setAttribute('class', 'letter');
-            console.log(letters[i]);
-            span.innerText = letters[i];
-            console.log(span);
-            wordGuessed.appendChild(span);
-            // wordGuessed.innerHTML = `<span class = "letter">${correctL[i]}</span>`;
-        } else {
-            // wordGuessed.innerHTML = `<span class = "letter">${''}</span>`;
-            console.log('wrong letter');
-        }
+    wordGuessed.innerHTML = `
+     ${wordSelection.split('').map(l => `<p class ="letter">
+            ${correctL.includes(l) ? l : ''}
+            </p>`
+            ).join('')}`;
+    const setWord = () => {
+    console.log(wordSelection);
+    // let letters = wordSelection.split('');
+    // console.log(letters);
+    // for (let i = 0; i < letters.length; i++) {
+    //     if (correctL.includes(letters[i])) {
+    //         let span = document.createElement('p');
+    //         span.setAttribute('class', 'letter');
+    //         console.log(letters[i]);
+    //         span.innerText = letters[i];
+    //         console.log(span);
+    //         wordGuessed.appendChild(span);
+    //         // wordGuessed.innerHTML = `<span class = "letter">${correctL[i]}</span>`;
+    //     } else {
+    //         // wordGuessed.innerHTML = `<span class = "letter">${''}</span>`;
+    //         console.log('wrong letter');
+    //     }
 
     }
-    console.log(correctL);
+
     // correctL.join('');
 
     console.log(correctL);
