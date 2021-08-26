@@ -7,7 +7,7 @@ const alertC = document.getElementById('alert')
 const footerContainer = document.getElementById('footer-container');
 
 
-const words = ['progressive', 'smart', 'breathe', 'explosion', 'propulsion','verging', 'encourage', 'immanence', 'nonvitiation', 'eradication', 'vertebration', 'tunnage', 'untranscendental', 'blastoderm', 'sunshiny', 'clownishly', 'ureteric', 'multilaminate',  'imploded', 'absorber', 'semiemotional', 'housewrecker', 'tribade', 'nonvolubleness','desterilize', 'colorfastness', 'crusoe', 'dyscrasia', 'atreus', 'pewage', 'featherstitch', 'nephrogenic', 'plenteously', 'courteney', 'uncastigated', 'reshew', 'kali', 'unarrestable', 'underlip', 'conrad', 'rajas', 'blazer', 'minhagic', 'shiksa', 'stoppability', 'employer', 'brest', 'beniamino', 'orotundity', 'dekko', 'homosexual', 'caudated', 'fulgent', 'unapostrophized'];
+const words = ['progressive', 'smart', 'breathe', 'explosion', 'propulsion','verging', 'encourage', 'immanence', 'nonvitiation', 'eradication', 'vertebration', 'tunnage', 'untranscendental', 'blastoderm', 'sunshiny', 'clownishly', 'ureteric', 'multilaminate',  'imploded', 'absorber', 'semiemotional', 'housewrecker', 'tribade', 'nonvolubleness','desterilize', 'colorfastness', 'crusoe', 'dyscrasia', 'atreus', 'pewage', 'featherstitch', 'nephrogenic', 'plenteously', 'courteney', 'uncastigated', 'reshew', 'kali', 'unarrestable', 'underlip', 'conrad', 'rajas', 'blazer', 'minhagic', 'shiksa', 'stoppability', 'employer', 'brest', 'beniamino', 'orotundity', 'dekko', 'caudated', 'fulgent', 'unapostrophized'];
 
 let wordSelection = words[Math.floor(Math.random() * words.length)];
 let correctL = [];
@@ -82,8 +82,7 @@ const wrongLetter = () => {
     // }
     // //lost condition
     if (wrongL.length === shipParts.length) {
-        message.innerText = 'Oh no, You did not made it on time, the spaceman has left!' +
-            `<br>:(</br>`;
+        message.innerText = 'Oh no, You did not made it on time, the spaceman has left!';
         footerContainer.style.display = 'flex';
     }
 }
