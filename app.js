@@ -41,8 +41,9 @@ const setWord = () => {
     // console.log(correctL);
     // correctL.join('');
 
+    console.log(correctL);
     const getWord = wordGuessed.innerText.replace(/\n/g, '');
-    if (getWord === correctL) {
+    if (getWord === wordSelection) {
         message.innerText = 'You won!';
         footerContainer.style.display = 'flex';
     }
@@ -85,7 +86,7 @@ const wrongLetter = () => {
 }
 
 //letter already pressed
-function alreadyPressed () {
+const alreadyPressed = () => {
     alertC.classList.add('popup');
     setTimeout(() => {
         alertC.classList.remove('popup');
