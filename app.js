@@ -46,7 +46,7 @@ const setWord = () => {
     console.log(correctL);
     const getWord = wordGuessed.innerText.replace(/\n/g, '');
     if (getWord === wordSelection) {
-        message.innerText = 'You won!';
+        message.innerText = 'You made it, the spaceman was not able to leave the planet!';
         footerContainer.style.display = 'flex';
     }
 
@@ -82,7 +82,8 @@ const wrongLetter = () => {
     // }
     // //lost condition
     if (wrongL.length === shipParts.length) {
-        message.innerText = 'You lost.'
+        message.innerText = 'Oh no, You did not made it on time, the spaceman has left!' +
+            `<br>:(</br>`;
         footerContainer.style.display = 'flex';
     }
 }
