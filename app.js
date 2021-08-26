@@ -1,7 +1,7 @@
-const shipParts = document.querySelectorAll('ship');
+const shipParts = document.querySelectorAll('.ship');
 const wordGuessed = document.getElementById('word');
 const playAgain = document.getElementById('play-again');
-const letterUsed = document.getElementById('letter-container');
+const letterUsed = document.getElementById('wrong-letters');
 const message = document.getElementById('result-message');
 const alertC = document.getElementById('alert')
 const footerContainer = document.getElementById('footer-container');
@@ -10,46 +10,74 @@ const footerContainer = document.getElementById('footer-container');
 const words = ['progressive', 'smart', 'breathe', 'explosion', 'propulsion'];
 
 let wordSelection = words[Math.floor(Math.random() * words.length)];
-const correctL = [];
-const wrongL = [];
+let correctL = [];
+let wrongL = [];
 
 //set the word
+console.log(wordSelection)
 const setWord = () => {
-    let letters = wordSelection.split('');
-    for (let i = 0; i < letters.length; i++) {
-        if (correctL.includes(letters[i])) {
-            wordGuessed.innerHTML = `<span class = "letter">${correctL[i]}</span>`;
-        } else {
-            wordGuessed.innerHTML = `<span class = "letter">${''}</span>`;
-        }
+    wordGuessed.innerHTML = `
+     ${wordSelection.split(' ').map(l => `<span class ="letter">
+            ${correctL.includes(l) ? l : ''}
+            </span>`
+            ).join('')}`;
+    // const setWord = () => {
+    // console.log(wordSelection);
+    // let letters = wordSelection.split('');
+    // console.log(letters);
+    // for (let i = 0; i < letters.length; i++) {
+    //     if (correctL.includes(letters[i])) {
+    //         let span = document.createElement('span');
+    //         span.innerText = correctL[i];
+    //         console.log(span);
+    //         wordGuessed.appendChild(span);
+    //         // wordGuessed.innerHTML = `<span class = "letter">${correctL[i]}</span>`;
+    //     } else {
+    //         // wordGuessed.innerHTML = `<span class = "letter">${''}</span>`;
+    //         console.log('wrong letter');
+    //     }
 
-    }
-    correctL.join('');
+    // }
+    // console.log(correctL);
+    // correctL.join('');
+
     const getWord = wordGuessed.innerText.replace(/\n/g, '');
     if (getWord === correctL) {
         message.innerText = 'You won!';
         footerContainer.style.display = 'flex';
     }
 
+    // }
 }
 
 //set the wrong letters
 
 const wrongLetter = () => {
-    letterUsed.innerHTML = `
-    ${wrongL.length > 0 ? '<p>Wrong</p>' : ''}
-    ${wrongL.map(l => `<span>${l}</span`)}`;
+    letterUsed.innerHTML = `${wrongL.map(l => `<span>${l + ', '}</span`)}`;
 
-    //display shipParts
-    for (let i = 0; i, shipParts.length; i++) {
-        const errors = wronl.length;
-        if (i < errors) {
-            shipParts[i].style.display = 'block';
+    // letterUsed.innerHTML = `
+    // ${wrongL.map(l => `<span>${l + ','}</span`)}`;
+
+    // //display shipParts
+    shipParts.forEach((part, index) => {
+        const errors = wrongL.length;
+        if (index < errors) {
+            part.style.display = 'block'
         } else {
-            shipParts[i].style.display = 'none';
+            part.style.display = 'none';
         }
+
     }
-    //lost condition
+    )
+    // for (let i = 0; i < shipParts.length; i++) {
+    //     const errors = wrongL.length;
+    //     if (i < errors) {
+    //         shipParts[i].style.display = 'block';
+    //     } else {
+    //         shipParts[i].style.display = 'none';
+    //     }
+    // }
+    // //lost condition
     if (wrongL.length === shipParts.length) {
         message.innerText = 'You lost.'
         footerContainer.style.display = 'flex';
@@ -57,7 +85,7 @@ const wrongLetter = () => {
 }
 
 //letter already pressed
-const alreadyPressed = () => {
+function alreadyPressed () {
     alertC.classList.add('popup');
     setTimeout(() => {
         alertC.classList.remove('popup');
@@ -86,4 +114,16 @@ window.addEventListener('keydown', event => {
         }
     }
 })
+
+
+playAgain.addEventListener('click', () => {
+    wordSelection = words[Math.floor(Math.random() * wordSelection.length)]
+    correctL = [];
+    wrongL = [];
+    setWord();
+    wrongLetter();
+    footerContainer.style.display = 'none';
+});
+
 setWord();
+
