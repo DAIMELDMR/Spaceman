@@ -15,35 +15,13 @@ let wrongL = [];
 
 //set the word
 const setWord = () => {
-    console.log(wordSelection)
+    console.log(wordSelection);
     wordGuessed.innerHTML = `
      ${wordSelection.split('').map(l => `<p class ="letter">
             ${correctL.includes(l) ? l : ''}
             </p>`
             ).join('')}`;
-    const setWord = () => {
-    console.log(wordSelection);
-    // let letters = wordSelection.split('');
-    // console.log(letters);
-    // for (let i = 0; i < letters.length; i++) {
-    //     if (correctL.includes(letters[i])) {
-    //         let span = document.createElement('p');
-    //         span.setAttribute('class', 'letter');
-    //         console.log(letters[i]);
-    //         span.innerText = letters[i];
-    //         console.log(span);
-    //         wordGuessed.appendChild(span);
-    //         // wordGuessed.innerHTML = `<span class = "letter">${correctL[i]}</span>`;
-    //     } else {
-    //         // wordGuessed.innerHTML = `<span class = "letter">${''}</span>`;
-    //         console.log('wrong letter');
-    //     }
 
-    }
-
-    // correctL.join('');
-
-    console.log(correctL);
     const getWord = wordGuessed.innerText.replace(/\n/g, '');
     if (getWord === wordSelection) {
         message.innerText = 'You made it, the spaceman was not able to leave the planet!';
@@ -58,8 +36,6 @@ const setWord = () => {
 const wrongLetter = () => {
     letterUsed.innerHTML = `${wrongL.map(l => `<span>${l + ', '}</span`)}`;
 
-    // letterUsed.innerHTML = `
-    // ${wrongL.map(l => `<span>${l + ','}</span`)}`;
 
     // //display shipParts
     shipParts.forEach((part, index) => {
@@ -72,15 +48,6 @@ const wrongLetter = () => {
 
     }
     )
-    // for (let i = 0; i < shipParts.length; i++) {
-    //     const errors = wrongL.length;
-    //     if (i < errors) {
-    //         shipParts[i].style.display = 'block';
-    //     } else {
-    //         shipParts[i].style.display = 'none';
-    //     }
-    // }
-    // //lost condition
     if (wrongL.length === shipParts.length) {
         message.innerText = 'Oh no, You did not made it on time, the spaceman has left!';
         footerContainer.style.display = 'flex';
