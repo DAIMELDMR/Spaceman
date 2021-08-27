@@ -5,9 +5,39 @@ const letterUsed = document.getElementById('wrong-letters');
 const message = document.getElementById('result-message');
 const alertC = document.getElementById('alert')
 const footerContainer = document.getElementById('footer-container');
+const shadow = document.getElementById('shadow');
+const buttons = document.querySelectorAll('.category');
+const modal = document.getElementById('modal')
+
+// const space = document.getElementById('space');
+const space = ['area', 'location', 'place', 'distance', 'spacetime', 'blank', 'aerospace',
+'expanse', 'infinite', 'time', 'vacuum', 'workspace', 'airspace', 'spacecraft', 'spaceship', 'orbit', 'physics', 'void', 'crawlspace', 'crenel', 'universe', 'emptiness', 'quad','swath','observation','satellite','spaceward','set','plane','planet','spacefaring','sputnik','shuttle','earth','astronaut','building','storage','satellites','room','starship','hubble','sphere','elbowroom','moon','pi','cyberspace','linear','dimension','continuum','spacer','interspace','philosopher','spatial','timaeus','plato','socrates','aristotle','paint','separation','type','position','attribute','vacancy','hole','stave','character','indenture','country','indentation','cavity','flies','seat','stardust'];
 
 
-const words = ['progressive', 'smart', 'breathe', 'explosion', 'propulsion','verging', 'encourage', 'immanence', 'nonvitiation', 'eradication', 'vertebration', 'tunnage', 'untranscendental', 'blastoderm', 'sunshiny', 'clownishly', 'ureteric', 'multilaminate',  'imploded', 'absorber', 'semiemotional', 'housewrecker', 'tribade', 'nonvolubleness','desterilize', 'colorfastness', 'crusoe', 'dyscrasia', 'atreus', 'pewage', 'featherstitch', 'nephrogenic', 'plenteously', 'courteney', 'uncastigated', 'reshew', 'kali', 'unarrestable', 'underlip', 'conrad', 'rajas', 'blazer', 'minhagic', 'shiksa', 'stoppability', 'employer', 'brest', 'beniamino', 'orotundity', 'dekko', 'caudated', 'fulgent', 'unapostrophized'];
+
+console.log(buttons);
+//working with the modal
+buttons.forEach(button => {
+    console.log(button);
+    button.addEventListener('click', () => {
+        closeModal();
+        launchGame(button);
+    })
+})
+
+
+const closeModal = () => {
+    console.log(modal == null);
+    if (modal) {
+        console.log(modal.classList)
+        modal.classList.remove('enable')
+        shadow.classList.remove('enable-shadow');
+        console.log(modal.classList);
+    }
+
+}
+
+
 
 let wordSelection = words[Math.floor(Math.random() * words.length)];
 let correctL = [];
@@ -87,14 +117,20 @@ window.addEventListener('keydown', event => {
 })
 
 
+const launchGame = (button) => {
+    if (button.currntTarget.value === 'Space') {
+        wordSelection = words[Math.floor(Math.random() * words.length)]
+        console.log(wordSelection);
+        correctL = [];
+        wrongL = [];
+        setWord();
+        wrongLetter();
+        footerContainer.style.display = 'none';
+    }
+}
+
 playAgain.addEventListener('click', () => {
-    wordSelection = words[Math.floor(Math.random() * words.length)]
-    console.log(wordSelection);
-    correctL = [];
-    wrongL = [];
-    setWord();
-    wrongLetter();
-    footerContainer.style.display = 'none';
+
 });
 
 setWord();
