@@ -131,6 +131,7 @@ const launchGame = (button) => {
         setWord();
         wrongLetter();
         footerContainer.style.display = 'none';
+
     }
 }
 
