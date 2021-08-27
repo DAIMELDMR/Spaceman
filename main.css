@@ -226,7 +226,6 @@ svg {
 
 .category {
     display: inline;
-    /* justify-content: space-between; */
     left: 0;
     right:0;
     bottom: 5px;
