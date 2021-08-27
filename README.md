@@ -9,3 +9,7 @@ At the game start, you will able to select a category to guess a word from(Word 
 # Features to be added
 A timer can be added to control the duration of each round, alonside a score to keep track each round won.
 
+# Tools and Websites
+-https://undraw.co/search
+-Figma (https://www.figma.com/downloads/)
+
