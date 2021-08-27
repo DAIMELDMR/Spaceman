@@ -9,52 +9,38 @@ const shadow = document.getElementById('shadow');
 const buttons = document.querySelectorAll('.category');
 const modal = document.getElementById('modal')
 
-// const space = document.getElementById('space');
-const space = ['area', 'location', 'place', 'distance', 'spacetime', 'blank', 'aerospace',
-'expanse', 'infinite', 'time', 'vacuum', 'workspace', 'airspace', 'spacecraft', 'spaceship', 'orbit', 'physics', 'void', 'crawlspace', 'crenel', 'universe', 'emptiness', 'quad','swath','observation','satellite','spaceward','set','plane','planet','spacefaring','sputnik','shuttle','earth','astronaut','building','storage','satellites','room','starship','hubble','sphere','elbowroom','moon','pi','cyberspace','linear','dimension','continuum','spacer','interspace','philosopher','spatial','timaeus','plato','socrates','aristotle','paint','separation','type','position','attribute','vacancy','hole','stave','character','indenture','country','indentation','cavity','flies','seat','stardust'];
-
-
-
-console.log(buttons);
-//working with the modal
-buttons.forEach(button => {
-    console.log(button);
-    button.addEventListener('click', () => {
-        closeModal();
-        launchGame(button);
-    })
-})
-
-
-const closeModal = () => {
-    console.log(modal == null);
-    if (modal) {
-        console.log(modal.classList)
-        modal.classList.remove('enable')
-        shadow.classList.remove('enable-shadow');
-        console.log(modal.classList);
-    }
-
-}
-
-
-
-let wordSelection = words[Math.floor(Math.random() * words.length)];
+//variable
+let wordSelection = '';
 let correctL = [];
 let wrongL = [];
+
+
+// const space = document.getElementById('space');
+const space = ['saturn', 'pluto', 'astroid', 'stardust', 'jupiter', 'earth', 'solar', 'moon', 'mars', 'venus', 'neptune', 'uranus', 'mercury','eclipse','galaxy','comet', 'planet','constellation','nebula','supernova'];
+
+const cities = ['paris', 'london', 'moscow', 'tokyo', 'beijing', 'chicago', 'atlanta',
+    'santorini', 'amsterdam', 'seoul', 'dubai', 'melbourne', 'madrid', 'frankfurt', 'montreal', 'rome','istanbul', 'munich', 'dublin', 'seattle']
+
+const countries = ['japan', 'australia', 'greece', 'england', 'brazil', 'columbia', 'switzerland', 'poland', 'germany', 'sweden', 'china', 'cuba', 'morocco', 'austria', 'italy', 'honduras', 'malta', 'ireland', 'scotland', 'belize']
+
+
+
+
+
+
+
 
 //set the word
 const setWord = () => {
     console.log(wordSelection);
     wordGuessed.innerHTML = `
      ${wordSelection.split('').map(l => `<p class ="letter">
-            ${correctL.includes(l) ? l : ''}
-            </p>`
+            ${correctL.includes(l) ? l : ''}</p>`
             ).join('')}`;
 
     const getWord = wordGuessed.innerText.replace(/\n/g, '');
     if (getWord === wordSelection) {
-        message.innerText = 'You made it, the spaceman was not able to leave the planet!';
+        message.innerText = 'You completed the mission! You stopped the Spaceman!';
         footerContainer.style.display = 'flex';
     }
 
@@ -79,7 +65,7 @@ const wrongLetter = () => {
     }
     )
     if (wrongL.length === shipParts.length) {
-        message.innerText = 'Oh no, You did not made it on time, the spaceman has left!';
+        message.innerText = 'Oh no! You did not complete the mission, the spaceman has left!';
         footerContainer.style.display = 'flex';
     }
 }
@@ -116,10 +102,29 @@ window.addEventListener('keydown', event => {
     }
 })
 
-
+//launch the game to pick from different word banks
 const launchGame = (button) => {
-    if (button.currntTarget.value === 'Space') {
-        wordSelection = words[Math.floor(Math.random() * words.length)]
+    if (button.innerHTML === 'Space') {
+        wordSelection = space[Math.floor(Math.random() * space.length)]
+        wordSelection.toLowerCase();
+        console.log(wordSelection);
+        correctL = [];
+        wrongL = [];
+        setWord();
+        wrongLetter();
+        footerContainer.style.display = 'none';
+    } else if ((button.innerHTML === 'Cities')) {
+        wordSelection = cities[Math.floor(Math.random() * cities.length)]
+        console.log(wordSelection);
+        wordSelection.toLowerCase();
+        correctL = [];
+        wrongL = [];
+        setWord();
+        wrongLetter();
+        footerContainer.style.display = 'none';
+    } else if (button.innerText === 'Countries') {
+        wordSelection = countries[Math.floor(Math.random() * countries.length)]
+        wordSelection.toUpperCase();
         console.log(wordSelection);
         correctL = [];
         wrongL = [];
@@ -129,8 +134,34 @@ const launchGame = (button) => {
     }
 }
 
-playAgain.addEventListener('click', () => {
+console.log(buttons);
+//working with the modal
+buttons.forEach(button => {
+    console.log(button.innerText);
+    button.addEventListener('click', () => {
+        closeModal();
+        launchGame(button);
+    })
+})
 
+
+const closeModal = () => {
+    console.log(modal == null);
+    if (modal) {
+        modal.classList.remove('enable')
+        shadow.classList.remove('enable-shadow');
+    }
+
+}
+
+
+
+playAgain.addEventListener('click', () => {
+    console.log(modal == null);
+    if (modal) {
+        modal.classList.add('enable')
+        shadow.classList.add('enable-shadow');
+    }
 });
 
 setWord();

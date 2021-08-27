@@ -164,6 +164,13 @@ svg {
     font-size: 15px;
 }
 
+.buttons {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+
 .modal {
     position: fixed;
     top: 50%;
@@ -198,6 +205,7 @@ svg {
     padding: 10px 15px;
 }
 
+
 .shadow {
     position:fixed;
     opacity: 0;
@@ -213,4 +221,16 @@ svg {
 .enable-shadow {
     opacity: 1;
     pointer-events: all;
+}
+
+.category {
+    display: inline;
+    /* justify-content: space-between; */
+    left: 0;
+    right:0;
+    bottom: 5px;
+    align-items: center;
+    background-color:rgb(4, 56, 134);
+    font-family: 'a Astro Space', sans-serif;
+    color: aliceblue;
 }
