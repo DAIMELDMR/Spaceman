@@ -103,36 +103,7 @@ window.addEventListener('keydown', event => {
 })
 
 //launch the game to pick from different word banks
-const launchGame = (button) => {
-    if (button.innerHTML === 'Space') {
-        wordSelection = space[Math.floor(Math.random() * space.length)]
-        wordSelection.toLowerCase();
-        console.log(wordSelection);
-        correctL = [];
-        wrongL = [];
-        setWord();
-        wrongLetter();
-        footerContainer.style.display = 'none';
-    } else if ((button.innerHTML === 'Cities')) {
-        wordSelection = cities[Math.floor(Math.random() * cities.length)]
-        console.log(wordSelection);
-        wordSelection.toLowerCase();
-        correctL = [];
-        wrongL = [];
-        setWord();
-        wrongLetter();
-        footerContainer.style.display = 'none';
-    } else if (button.innerText === 'Countries') {
-        wordSelection = countries[Math.floor(Math.random() * countries.length)]
-        wordSelection.toUpperCase();
-        console.log(wordSelection);
-        correctL = [];
-        wrongL = [];
-        setWord();
-        wrongLetter();
-        footerContainer.style.display = 'none';
-    }
-}
+
 
 console.log(buttons);
 //working with the modal
