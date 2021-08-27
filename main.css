@@ -10,13 +10,18 @@
 
 
 body {
-    background: linear-gradient( 90deg, rgb(35, 92, 163), rgb(138, 189, 255));
+    background: linear-gradient( 90deg, rgb(35, 92, 163), rgb(138, 189, 255)) no-repeat;
+;
     color: white;
     font-family: 'a Astro Space',sans-serif;
 
 
 }
-@media screen and (min-width: 900px){
+@media only screen and (min-width: 768px){
+    svg {
+        width: 100px;
+        height: 100px;
+    }
 
 
 }
@@ -102,17 +107,13 @@ p {
 
 
 .alert-container p {
-
     margin: 0;
-
 }
 
 .alert-container .popup {
     display: flex;
     box-shadow:  0 15px 10px 3px rgba(0, 0, 0, 0.1);
 }
-
-
 
 
 #ship-container {

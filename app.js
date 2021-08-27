@@ -164,5 +164,5 @@ playAgain.addEventListener('click', () => {
     }
 });
 
-setWord();
+// setWord();
 
